@@ -1,7 +1,9 @@
+import Router from './pages/Router';
+
 function App() {
   return (
     <>
-      <div>싹 다 날려버렸습니다.....</div>
+      <Router />
     </>
   );
 }
