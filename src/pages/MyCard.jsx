@@ -1,11 +1,39 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 const MyCard = () => {
+  const [card, setCard] = useState({});
+  const [isCardEmpty, setIsCardEmpty] = useState(true);
+
+  useEffect(() => {
+    const savedCard = localStorage.getItem('card');
+    if (savedCard) {
+      setCard(JSON.parse(savedCard));
+      setIsCardEmpty(false);
+    }
+  }, []);
+
   return (
     <>
-      Card Display Page
-      <Button to="/edit">수정하기</Button>
+      {isCardEmpty ? (
+        <>
+          <div> 아직 생성한 명함이 없어요 </div>
+          <Button to="/edit">생성하기</Button>
+        </>
+      ) : (
+        <>
+          <Card>
+            {Object.keys(card).map((key) => (
+              <p key={key}>
+                {card[key]}
+                {key === 'number' && '학번'}
+              </p>
+            ))}
+          </Card>
+          <Button to="/edit">수정하기</Button>
+        </>
+      )}
     </>
   );
 };
@@ -22,4 +50,8 @@ const Button = styled(Link)`
   background-color: white;
   border: 5px solid purple;
   border-radius: 5px;
+`;
+
+const Card = styled.div`
+  border: 1px solid;
 `;
