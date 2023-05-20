@@ -42,13 +42,17 @@ const EditCard = () => {
 
   return (
     <>
-      <EditInput target={'이름'} ref={nameRef} />
-      <EditInput target={'학과'} ref={deptRef} />
-      <EditInput target={'학번'} maxLength={2} ref={idRef} />
-      <div> mbti </div>
-      <div> 주량 </div>
+      <Container>
+        <EditInput target={'이름'} ref={nameRef} />
+        <EditInput target={'학과'} ref={deptRef} />
+        <EditInput target={'학번'} maxLength={2} ref={idRef} />
+        <div> mbti </div>
+        <div> 주량 </div>
 
-      <Button onClick={onClick}> 완성하기 </Button>
+        <ButtonBox>
+          <Button onClick={onClick}> 완성하기 </Button>
+        </ButtonBox>
+      </Container>
     </>
   );
 };
@@ -56,13 +60,23 @@ const EditCard = () => {
 export default EditCard;
 
 const Button = styled.button`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin: -25px 0 0 -25px;
   padding: 10px 20px;
   font-size: 20px;
   background-color: white;
   border: 5px solid purple;
   border-radius: 5px;
+`;
+
+const ButtonBox = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  width: 500px;
+`;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 60vh;
+  align-items: center;
+  justify-content: space-evenly;
 `;
