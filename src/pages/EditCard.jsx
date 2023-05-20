@@ -15,7 +15,7 @@ const EditCard = () => {
     targetRef.current.focus();
   };
 
-  const onClick = () => {
+  const onSubmit = () => {
     const name = nameRef.current.value;
     const dept = deptRef.current.value;
     const studentID = idRef.current.value;
@@ -50,7 +50,7 @@ const EditCard = () => {
         <div> 주량 </div>
 
         <ButtonBox>
-          <Button onClick={onClick}> 완성하기 </Button>
+          <Button onClick={onSubmit}> 완성하기 </Button>
         </ButtonBox>
       </Container>
     </>
