@@ -50,7 +50,14 @@ const EditCard = () => {
         <div> 주량 </div>
 
         <ButtonBox>
-          <Button onClick={onSubmit}> 완성하기 </Button>
+          <Button
+            onClick={() => {
+              navigate('/');
+            }}
+          >
+            취소
+          </Button>
+          <Button onClick={onSubmit}> 완성 </Button>
         </ButtonBox>
       </Container>
     </>
