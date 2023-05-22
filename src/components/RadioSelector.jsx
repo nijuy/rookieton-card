@@ -27,7 +27,7 @@ const RadioSelector = forwardRef((props, ref) => {
           value={optionB}
           onChange={handleInputChange}
         />
-        <label htmlFor={props.optionB}>{props.optionB} </label>
+        <label htmlFor={optionB}>{optionB} </label>
       </div>
     </>
   );

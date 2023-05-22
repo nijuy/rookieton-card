@@ -2,9 +2,11 @@ import { forwardRef, useRef } from 'react';
 import styled from 'styled-components';
 
 const EditInput = forwardRef((props, ref) => {
+  const { target, maxLength, prevInput } = props;
+
   const warningRef = useRef();
 
-  const guideText = `${props.maxLength}자 이하의 정보를 입력해주세요.`;
+  const guideText = `${maxLength}자 이하의 정보를 입력해주세요.`;
 
   const onChange = (e) => {
     const input = e.target.value;
@@ -17,14 +19,14 @@ const EditInput = forwardRef((props, ref) => {
   return (
     <>
       <InputBox>
-        {props.target}
+        {target}
         <Input
           ref={ref}
           onChange={onChange}
-          placeholder={`${props.target} 입력칸`}
+          placeholder={`${target} 입력칸`}
           minLength={1}
-          maxLength={props.maxLength}
-          defaultValue={props.prevInput}
+          maxLength={maxLength}
+          defaultValue={prevInput}
         />
         <p ref={warningRef}> {guideText} </p>
       </InputBox>
