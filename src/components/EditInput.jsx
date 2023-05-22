@@ -9,10 +9,23 @@ const EditInput = forwardRef((props, ref) => {
   const guideText = `${maxLength}자 이하의 정보를 입력해주세요.`;
 
   const onChange = (e) => {
+    const letterRegex = /[^0-9]/;
     const input = e.target.value;
 
     if (input.length) {
       ref.current.style.border = '1px solid black';
+
+      warningRef.current.innerText = guideText;
+      warningRef.current.style.color = 'black';
+    }
+
+    if (target === '학번' && input.search(letterRegex) > -1) {
+      ref.current.style.border = '1px solid red';
+
+      warningRef.current.innerText = '학번은 숫자만 입력 가능합니다.';
+      warningRef.current.style.color = 'red';
+
+      e.target.value = null;
     }
   };
 
