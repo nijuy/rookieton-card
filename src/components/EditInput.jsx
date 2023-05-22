@@ -24,6 +24,7 @@ const EditInput = forwardRef((props, ref) => {
           placeholder={`${props.target} 입력칸`}
           minLength={1}
           maxLength={props.maxLength}
+          defaultValue={props.prevInput}
         />
         <p ref={warningRef}> {guideText} </p>
       </InputBox>
@@ -33,6 +34,7 @@ const EditInput = forwardRef((props, ref) => {
 
 EditInput.defaultProps = {
   maxLength: 10,
+  prevInput: '',
 };
 
 export default EditInput;

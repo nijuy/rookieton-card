@@ -5,6 +5,8 @@ import EditInput from '../components/EditInput';
 import RadioSelector from '../components/RadioSelector';
 
 const EditCard = () => {
+  const prevCard = JSON.parse(localStorage.getItem('card'));
+
   const nameRef = useRef();
   const deptRef = useRef();
   const idRef = useRef();
@@ -46,9 +48,14 @@ const EditCard = () => {
   return (
     <>
       <Container>
-        <EditInput target={'이름'} ref={nameRef} />
-        <EditInput target={'학과'} ref={deptRef} />
-        <EditInput target={'학번'} maxLength={2} ref={idRef} />
+        <EditInput target={'이름'} prevInput={prevCard && prevCard.name} ref={nameRef} />
+        <EditInput target={'학과'} prevInput={prevCard && prevCard.dept} ref={deptRef} />
+        <EditInput
+          target={'학번'}
+          prevInput={prevCard && prevCard.studentID}
+          maxLength={2}
+          ref={idRef}
+        />
         <div>
           mbti
           <RadioSelector optionA={'E'} optionB={'I'} ref={mbtiRef[0]} />
