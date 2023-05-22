@@ -5,6 +5,8 @@ import EditInput from '../components/EditInput';
 import RadioSelector from '../components/RadioSelector';
 
 const EditCard = () => {
+  const prevCard = JSON.parse(localStorage.getItem('card'));
+
   const nameRef = useRef();
   const deptRef = useRef();
   const idRef = useRef();
@@ -20,16 +22,16 @@ const EditCard = () => {
   const onSubmit = () => {
     const name = nameRef.current.value;
     const dept = deptRef.current.value;
-    const studentID = idRef.current.value;
+    const id = idRef.current.value;
     const mbti = mbtiRef.map((r) => r.current.value).join('');
 
-    if (name && dept && studentID) {
+    if (name && dept && id) {
       localStorage.setItem(
         'card',
         JSON.stringify({
           name: name,
           dept: dept,
-          studentID: studentID,
+          id: id,
           mbti: mbti,
           // alcohol: 1,
         }),
@@ -39,16 +41,16 @@ const EditCard = () => {
     } else {
       if (!name) emptyInputFocus(nameRef);
       if (!dept) emptyInputFocus(deptRef);
-      if (!studentID) emptyInputFocus(idRef);
+      if (!id) emptyInputFocus(idRef);
     }
   };
 
   return (
     <>
       <Container>
-        <EditInput target={'이름'} ref={nameRef} />
-        <EditInput target={'학과'} ref={deptRef} />
-        <EditInput target={'학번'} maxLength={2} ref={idRef} />
+        <EditInput target={'이름'} prevInput={prevCard && prevCard.name} ref={nameRef} />
+        <EditInput target={'학과'} prevInput={prevCard && prevCard.dept} ref={deptRef} />
+        <EditInput target={'학번'} prevInput={prevCard && prevCard.id} maxLength={2} ref={idRef} />
         <div>
           mbti
           <RadioSelector optionA={'E'} optionB={'I'} ref={mbtiRef[0]} />
