@@ -93,16 +93,7 @@ const EditCard = () => {
         </div>
         <div> 주량 </div>
 
-        <ButtonBox>
-          <Button
-            onClick={() => {
-              navigate('/');
-            }}
-          >
-            취소
-          </Button>
-          <Button onClick={onSubmit}> 완성 </Button>
-        </ButtonBox>
+        <Button onClick={onSubmit}> 완성 </Button>
       </Container>
     </>
   );
@@ -116,12 +107,6 @@ const Button = styled.button`
   background-color: white;
   border: 5px solid purple;
   border-radius: 5px;
-`;
-
-const ButtonBox = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  width: 500px;
 `;
 
 const Container = styled.div`
