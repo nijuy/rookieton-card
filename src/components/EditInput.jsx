@@ -1,29 +1,19 @@
-import { forwardRef, useRef } from 'react';
+import { forwardRef } from 'react';
 import styled from 'styled-components';
 
 const EditInput = forwardRef((props, ref) => {
-  const { target, maxLength, prevInput } = props;
-
-  const warningRef = useRef();
-
-  const guideText = `${maxLength}자 이하의 정보를 입력해주세요.`;
+  const { target, maxLength, prevInput, placeholder } = props;
 
   const onChange = (e) => {
     const letterRegex = /[^0-9]/;
     const input = e.target.value;
 
     if (input.length) {
-      ref.current.style.border = '1px solid black';
-
-      warningRef.current.innerText = guideText;
-      warningRef.current.style.color = 'black';
+      ref.current.style.border = '1px solid #a3a3a3';
     }
 
     if (target === '학번' && input.search(letterRegex) > -1) {
       ref.current.style.border = '1px solid red';
-
-      warningRef.current.innerText = '학번은 숫자만 입력 가능합니다.';
-      warningRef.current.style.color = 'red';
 
       e.target.value = null;
     }
@@ -36,12 +26,11 @@ const EditInput = forwardRef((props, ref) => {
         <Input
           ref={ref}
           onChange={onChange}
-          placeholder={`${target} 입력칸`}
+          placeholder={placeholder}
           minLength={1}
           maxLength={maxLength}
           defaultValue={prevInput}
         />
-        <p ref={warningRef}> {guideText} </p>
       </InputBox>
     </>
   );
@@ -50,6 +39,7 @@ const EditInput = forwardRef((props, ref) => {
 EditInput.defaultProps = {
   maxLength: 10,
   prevInput: '',
+  placeholder: 'placeholder',
 };
 
 export default EditInput;
@@ -63,7 +53,7 @@ const InputBox = styled.div`
 
 const Input = styled.input`
   outline: none;
-  border: 1px solid;
-  border-radius: 25px;
+  border: 1px solid #a3a3a3;
+  border-radius: 8px;
   padding: 5px 10px;
 `;

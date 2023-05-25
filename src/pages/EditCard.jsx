@@ -48,15 +48,48 @@ const EditCard = () => {
   return (
     <>
       <Container>
-        <EditInput target={'이름'} prevInput={prevCard && prevCard.name} ref={nameRef} />
+        <EditInput
+          target={'이름'}
+          prevInput={prevCard && prevCard.name}
+          ref={nameRef}
+          placeholder={'이름을 입력해주세요 (10자 내, 특수문자 가능)'}
+        />
         <EditInput target={'학과'} prevInput={prevCard && prevCard.dept} ref={deptRef} />
-        <EditInput target={'학번'} prevInput={prevCard && prevCard.id} maxLength={2} ref={idRef} />
-        <div>
-          mbti
-          <RadioSelector optionA={'E'} optionB={'I'} ref={mbtiRef[0]} />
-          <RadioSelector optionA={'N'} optionB={'S'} ref={mbtiRef[1]} />
-          <RadioSelector optionA={'F'} optionB={'T'} ref={mbtiRef[2]} />
-          <RadioSelector optionA={'P'} optionB={'J'} ref={mbtiRef[3]} />
+        <EditInput
+          target={'학번'}
+          prevInput={prevCard && prevCard.id}
+          maxLength={2}
+          ref={idRef}
+          placeholder={'학번 (ex. 20)'}
+        />
+        <div style={{ display: 'flex' }}>
+          MBTI
+          <MBTIBox>
+            <RadioSelector
+              optionA={'E'}
+              optionB={'I'}
+              ref={mbtiRef[0]}
+              guideText={['외향', '내향']}
+            />
+            <RadioSelector
+              optionA={'S'}
+              optionB={'N'}
+              ref={mbtiRef[1]}
+              guideText={['감각', '직관']}
+            />
+            <RadioSelector
+              optionA={'T'}
+              optionB={'F'}
+              ref={mbtiRef[2]}
+              guideText={['사고', '감각']}
+            />
+            <RadioSelector
+              optionA={'J'}
+              optionB={'P'}
+              ref={mbtiRef[3]}
+              guideText={['판단', '인식']}
+            />
+          </MBTIBox>
         </div>
         <div> 주량 </div>
 
@@ -97,4 +130,9 @@ const Container = styled.div`
   height: 60vh;
   align-items: center;
   justify-content: space-evenly;
+`;
+
+const MBTIBox = styled.div`
+  display: grid;
+  grid-template-columns: 50% 50%;
 `;
