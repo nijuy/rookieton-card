@@ -1,10 +1,8 @@
-import { forwardRef, useRef } from 'react';
+import { forwardRef } from 'react';
 import styled from 'styled-components';
 
 const EditInput = forwardRef((props, ref) => {
   const { target, maxLength, prevInput } = props;
-
-  const warningRef = useRef();
 
   const guideText = `${maxLength}자 이하의 정보를 입력해주세요.`;
 
@@ -14,16 +12,10 @@ const EditInput = forwardRef((props, ref) => {
 
     if (input.length) {
       ref.current.style.border = '1px solid #a3a3a3';
-
-      warningRef.current.innerText = guideText;
-      warningRef.current.style.color = 'black';
     }
 
     if (target === '학번' && input.search(letterRegex) > -1) {
       ref.current.style.border = '1px solid red';
-
-      warningRef.current.innerText = '학번은 숫자만 입력 가능합니다.';
-      warningRef.current.style.color = 'red';
 
       e.target.value = null;
     }
@@ -41,7 +33,6 @@ const EditInput = forwardRef((props, ref) => {
           maxLength={maxLength}
           defaultValue={prevInput}
         />
-        <p ref={warningRef}> {guideText} </p>
       </InputBox>
     </>
   );
