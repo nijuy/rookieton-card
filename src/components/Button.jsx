@@ -3,11 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import start_arrow from '../assets/start_arrow.svg';
 
 const Button = (props) => {
-  const { text, showImg, color, link } = props;
+  const { text, showImg, color, link, onSubmit } = props;
   const navigate = useNavigate();
 
   const onClick = () => {
-    navigate(link);
+    const navigateFlag = onSubmit ? onSubmit() : true; //EditCard는 onSubmit()에서 조건 충족해야 페이지 이동
+    if (navigateFlag) navigate(link);
   };
 
   return (
@@ -23,6 +24,7 @@ const Button = (props) => {
 Button.defaultProps = {
   showImg: false,
   link: '',
+  onSubmit: undefined,
 };
 
 const ButtonContainer = styled.button`
