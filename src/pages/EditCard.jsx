@@ -62,32 +62,34 @@ const EditCard = () => {
           ref={idRef}
           placeholder={'학번 (ex. 20)'}
         />
-        <div>
+        <div style={{ display: 'flex' }}>
           MBTI
-          <RadioSelector
-            optionA={'E'}
-            optionB={'I'}
-            ref={mbtiRef[0]}
-            guideText={['외향', '내향']}
-          />
-          <RadioSelector
-            optionA={'S'}
-            optionB={'N'}
-            ref={mbtiRef[1]}
-            guideText={['감각', '직관']}
-          />
-          <RadioSelector
-            optionA={'T'}
-            optionB={'F'}
-            ref={mbtiRef[2]}
-            guideText={['사고', '감각']}
-          />
-          <RadioSelector
-            optionA={'J'}
-            optionB={'P'}
-            ref={mbtiRef[3]}
-            guideText={['판단', '인식']}
-          />
+          <MBTIBox>
+            <RadioSelector
+              optionA={'E'}
+              optionB={'I'}
+              ref={mbtiRef[0]}
+              guideText={['외향', '내향']}
+            />
+            <RadioSelector
+              optionA={'S'}
+              optionB={'N'}
+              ref={mbtiRef[1]}
+              guideText={['감각', '직관']}
+            />
+            <RadioSelector
+              optionA={'T'}
+              optionB={'F'}
+              ref={mbtiRef[2]}
+              guideText={['사고', '감각']}
+            />
+            <RadioSelector
+              optionA={'J'}
+              optionB={'P'}
+              ref={mbtiRef[3]}
+              guideText={['판단', '인식']}
+            />
+          </MBTIBox>
         </div>
         <div> 주량 </div>
 
@@ -128,4 +130,9 @@ const Container = styled.div`
   height: 60vh;
   align-items: center;
   justify-content: space-evenly;
+`;
+
+const MBTIBox = styled.div`
+  display: grid;
+  grid-template-columns: 50% 50%;
 `;
