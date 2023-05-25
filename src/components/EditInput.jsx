@@ -2,9 +2,7 @@ import { forwardRef } from 'react';
 import styled from 'styled-components';
 
 const EditInput = forwardRef((props, ref) => {
-  const { target, maxLength, prevInput } = props;
-
-  const guideText = `${maxLength}자 이하의 정보를 입력해주세요.`;
+  const { target, maxLength, prevInput, placeholder } = props;
 
   const onChange = (e) => {
     const letterRegex = /[^0-9]/;
@@ -28,7 +26,7 @@ const EditInput = forwardRef((props, ref) => {
         <Input
           ref={ref}
           onChange={onChange}
-          placeholder={`${target} 입력칸`}
+          placeholder={placeholder}
           minLength={1}
           maxLength={maxLength}
           defaultValue={prevInput}
@@ -41,6 +39,7 @@ const EditInput = forwardRef((props, ref) => {
 EditInput.defaultProps = {
   maxLength: 10,
   prevInput: '',
+  placeholder: 'placeholder',
 };
 
 export default EditInput;

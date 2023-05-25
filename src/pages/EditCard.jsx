@@ -48,9 +48,20 @@ const EditCard = () => {
   return (
     <>
       <Container>
-        <EditInput target={'이름'} prevInput={prevCard && prevCard.name} ref={nameRef} />
+        <EditInput
+          target={'이름'}
+          prevInput={prevCard && prevCard.name}
+          ref={nameRef}
+          placeholder={'이름을 입력해주세요 (10자 내, 특수문자 가능)'}
+        />
         <EditInput target={'학과'} prevInput={prevCard && prevCard.dept} ref={deptRef} />
-        <EditInput target={'학번'} prevInput={prevCard && prevCard.id} maxLength={2} ref={idRef} />
+        <EditInput
+          target={'학번'}
+          prevInput={prevCard && prevCard.id}
+          maxLength={2}
+          ref={idRef}
+          placeholder={'학번 (ex. 20)'}
+        />
         <div>
           mbti
           <RadioSelector optionA={'E'} optionB={'I'} ref={mbtiRef[0]} />
