@@ -63,7 +63,7 @@ const InputBox = styled.div`
 
 const Input = styled.input`
   outline: none;
-  border: 1px solid;
-  border-radius: 25px;
+  border: 1px solid #a3a3a3;
+  border-radius: 8px;
   padding: 5px 10px;
 `;
