@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import Button from '../components/Button';
 import Header from '../components/Header';
+import start_ppussung from '../assets/start_ppussung.svg';
 
 const MyCard = () => {
   const [card, setCard] = useState({});
@@ -20,7 +21,9 @@ const MyCard = () => {
       <Header />
       {isCardEmpty ? (
         <>
-          <div> 매번 똑같은 자기소개에 질렸다면? </div>
+          <h4> 매번 똑같은 자기소개에 질렸다면? </h4>
+          <img src={start_ppussung} alt="" />
+
           <Button
             text="나를 친구에게 소개하기"
             showImg={true}
