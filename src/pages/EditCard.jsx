@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useRef } from 'react';
 import EditInput from '../components/EditInput';
 import RadioSelector from '../components/RadioSelector';
+import Button from '../components/Button';
 
 const EditCard = () => {
   const prevCard = JSON.parse(localStorage.getItem('card'));
@@ -37,11 +38,13 @@ const EditCard = () => {
         }),
       );
 
-      navigate('/');
+      return true;
     } else {
       if (!name) emptyInputFocus(nameRef);
       if (!dept) emptyInputFocus(deptRef);
       if (!id) emptyInputFocus(idRef);
+
+      return false;
     }
   };
 
@@ -92,22 +95,13 @@ const EditCard = () => {
           </MBTIBox>
         </div>
         <div> 주량 </div>
-
-        <Button onClick={onSubmit}> 완성 </Button>
+        <Button text="내 소개 등록하기" color="#AB9FED" link="/" onSubmit={onSubmit} />
       </Container>
     </>
   );
 };
 
 export default EditCard;
-
-const Button = styled.button`
-  padding: 10px 20px;
-  font-size: 20px;
-  background-color: white;
-  border: 5px solid purple;
-  border-radius: 5px;
-`;
 
 const Container = styled.div`
   display: flex;
