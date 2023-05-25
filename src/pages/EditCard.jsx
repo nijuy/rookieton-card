@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import EditInput from '../components/EditInput';
 import RadioSelector from '../components/RadioSelector';
 import Button from '../components/Button';
+import Header from '../components/Header';
 
 const EditCard = () => {
   const prevCard = JSON.parse(localStorage.getItem('card'));
@@ -12,8 +13,6 @@ const EditCard = () => {
   const deptRef = useRef();
   const idRef = useRef();
   const mbtiRef = Array.from({ length: 4 }, () => useRef());
-
-  const navigate = useNavigate();
 
   const emptyInputFocus = (targetRef) => {
     targetRef.current.style.border = '1px solid red';
@@ -50,6 +49,7 @@ const EditCard = () => {
 
   return (
     <>
+      <Header />
       <Container>
         <EditInput
           target={'이름'}
