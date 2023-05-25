@@ -18,8 +18,8 @@ const MyCard = () => {
     <>
       {isCardEmpty ? (
         <>
-          <div> 아직 생성한 명함이 없어요 </div>
-          <Button to="/edit">생성하기</Button>
+          <div> 매번 똑같은 자기소개에 질렸다면? </div>
+          <Button to="/edit">나를 친구에게 소개하기</Button>
         </>
       ) : (
         <>
