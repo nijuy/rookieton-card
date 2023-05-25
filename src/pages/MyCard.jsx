@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import Button from '../components/Button';
+import Header from '../components/Header';
 
 const MyCard = () => {
   const [card, setCard] = useState({});
@@ -16,6 +17,7 @@ const MyCard = () => {
 
   return (
     <>
+      <Header />
       {isCardEmpty ? (
         <>
           <div> 매번 똑같은 자기소개에 질렸다면? </div>
@@ -36,7 +38,6 @@ const MyCard = () => {
               </p>
             ))}
           </Card>
-          <div>수정하기</div>
         </>
       )}
     </>
