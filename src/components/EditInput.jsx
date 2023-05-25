@@ -13,7 +13,7 @@ const EditInput = forwardRef((props, ref) => {
     const input = e.target.value;
 
     if (input.length) {
-      ref.current.style.border = '1px solid black';
+      ref.current.style.border = '1px solid #a3a3a3';
 
       warningRef.current.innerText = guideText;
       warningRef.current.style.color = 'black';
