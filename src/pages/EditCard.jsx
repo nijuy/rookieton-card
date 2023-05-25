@@ -63,7 +63,7 @@ const EditCard = () => {
           placeholder={'학번 (ex. 20)'}
         />
         <div>
-          mbti
+          MBTI
           <RadioSelector optionA={'E'} optionB={'I'} ref={mbtiRef[0]} />
           <RadioSelector optionA={'N'} optionB={'S'} ref={mbtiRef[1]} />
           <RadioSelector optionA={'F'} optionB={'T'} ref={mbtiRef[2]} />
