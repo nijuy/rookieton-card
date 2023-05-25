@@ -64,10 +64,30 @@ const EditCard = () => {
         />
         <div>
           MBTI
-          <RadioSelector optionA={'E'} optionB={'I'} ref={mbtiRef[0]} />
-          <RadioSelector optionA={'N'} optionB={'S'} ref={mbtiRef[1]} />
-          <RadioSelector optionA={'F'} optionB={'T'} ref={mbtiRef[2]} />
-          <RadioSelector optionA={'P'} optionB={'J'} ref={mbtiRef[3]} />
+          <RadioSelector
+            optionA={'E'}
+            optionB={'I'}
+            ref={mbtiRef[0]}
+            guideText={['외향', '내향']}
+          />
+          <RadioSelector
+            optionA={'S'}
+            optionB={'N'}
+            ref={mbtiRef[1]}
+            guideText={['감각', '직관']}
+          />
+          <RadioSelector
+            optionA={'T'}
+            optionB={'F'}
+            ref={mbtiRef[2]}
+            guideText={['사고', '감각']}
+          />
+          <RadioSelector
+            optionA={'J'}
+            optionB={'P'}
+            ref={mbtiRef[3]}
+            guideText={['판단', '인식']}
+          />
         </div>
         <div> 주량 </div>
 

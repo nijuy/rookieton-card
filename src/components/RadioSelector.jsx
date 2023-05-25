@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 
 const RadioSelector = forwardRef((props, ref) => {
-  const { optionA, optionB } = props;
+  const { optionA, optionB, guideText } = props;
 
   const handleInputChange = (e) => {
     ref.current = e.target;
@@ -10,6 +10,7 @@ const RadioSelector = forwardRef((props, ref) => {
   return (
     <>
       <div>
+        <p> {`${guideText[0]}형? vs ${guideText[1]}형?`} </p>
         <input
           type="radio"
           ref={ref}
