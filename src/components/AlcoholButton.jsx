@@ -106,7 +106,7 @@ const AlcoholButton = forwardRef((props, ref) => {
 const Bottle = styled.div`
   width: fit-content;
   background: ${(props) =>
-    `linear-gradient(0deg, green 0 ${props.fill}%, white ${1 - props.fill}% 100%)`};
+    `linear-gradient(0deg, #6EDE79 0 ${props.fill}%, white ${1 - props.fill}% 100%)`};
   height: 80px;
 `;
 
