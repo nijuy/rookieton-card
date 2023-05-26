@@ -33,11 +33,11 @@ const EditCard = () => {
       localStorage.setItem(
         'card',
         JSON.stringify({
-          name: name,
-          dept: dept,
-          id: id,
-          mbti: mbti,
-          alcohol: alcohol,
+          Name: name,
+          Major: dept,
+          St_ID: id,
+          MBTI: mbti,
+          Drink: alcohol,
         }),
       );
 
@@ -57,14 +57,14 @@ const EditCard = () => {
       <Container>
         <EditInput
           target={'이름'}
-          prevInput={prevCard && prevCard.name}
+          prevInput={prevCard && prevCard.Name}
           ref={nameRef}
           placeholder={'이름을 입력해주세요 (10자 내, 특수문자 가능)'}
         />
-        <EditInput target={'학과'} prevInput={prevCard && prevCard.dept} ref={deptRef} />
+        <EditInput target={'학과'} prevInput={prevCard && prevCard.Major} ref={deptRef} />
         <EditInput
           target={'학번'}
-          prevInput={prevCard && prevCard.id}
+          prevInput={prevCard && prevCard.St_ID}
           maxLength={2}
           ref={idRef}
           placeholder={'학번 (ex. 20)'}
