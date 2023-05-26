@@ -40,6 +40,7 @@ const MyCard = () => {
                 {key === 'Drink'
                   ? `${parseInt(card[key])}병 ${(card[key] - parseInt(card[key])) * 8}잔`
                   : card[key]}
+                {key === 'ID' && <>학번</>}
               </p>
             ))}
           </Card>
