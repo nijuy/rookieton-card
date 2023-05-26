@@ -41,7 +41,7 @@ const AlcoholButton = forwardRef((props, ref) => {
               onClickMinus(ONE_BOTTLE);
             }}
             direction="L"
-            disabled={fillBottle === 0 && true}
+            disabled={fillBottle < 100 && true}
           >
             -
           </Button>
