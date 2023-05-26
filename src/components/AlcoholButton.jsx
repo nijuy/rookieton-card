@@ -3,10 +3,10 @@ import { styled } from 'styled-components';
 import bottle from '../assets/bottle.svg';
 
 const AlcoholButton = forwardRef((props, ref) => {
-  const [fillBottle, setFillBottle] = useState(
-    Number(JSON.parse(localStorage.getItem('card'))['Drink'] * 100),
-  );
+  const { prevInput } = props;
 
+  const [fillBottle, setFillBottle] = useState(prevInput ? Number(prevInput * 100) : 0);
+  
   const ONE_BOTTLE = 100;
   const ONE_SHOT = 12.5;
 
