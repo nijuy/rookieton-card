@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import menu_button from '../assets/menu_button.svg';
 import edit_button from '../assets/edit_button.svg';
+import close_button from '../assets/close_button.svg';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -30,13 +31,15 @@ const Header = () => {
               e.stopPropagation();
             }}
           >
-            <button onClick={reverseOpenMenu}>X</button>
-            <ul>
-              <li> 서비스 설명 </li>
-              <li> 만든 사람 </li>
-              <li> 이용 약관 </li>
+            <ImageButton onClick={reverseOpenMenu}>
+              <img src={close_button} alt="" />
+            </ImageButton>
+            <List>
+              <li> 서비스 소개 </li>
+              <li> 만든 사람들 </li>
+              <li> 이용약관 </li>
               <li> 개인정보 처리방침 </li>
-            </ul>
+            </List>
           </MenuBox>
         </MenuContainer>
       )}
@@ -83,10 +86,23 @@ const MenuContainer = styled.div`
 `;
 
 const MenuBox = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
   background-color: white;
-  height: 400px;
-  width: 250px;
+  height: 100vh;
+  width: 230px;
+  float: left;
+
+  ${ImageButton} {
+    padding: 10px;
+    width: fit-content;
+    float: right;
+  }
+`;
+
+const List = styled.ul`
+  list-style: none;
+  margin-top: 50px;
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 `;
