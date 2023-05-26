@@ -36,8 +36,9 @@ const MyCard = () => {
           <Card>
             {Object.keys(card).map((key) => (
               <p key={key}>
-                {card[key]}
-                {key === 'number' && '학번'}
+                {key === 'alcohol'
+                  ? `${parseInt(card[key])}병 ${(card[key] - parseInt(card[key])) * 8}잔`
+                  : card[key]}
               </p>
             ))}
           </Card>

@@ -5,6 +5,8 @@ import EditInput from '../components/EditInput';
 import RadioSelector from '../components/RadioSelector';
 import Button from '../components/Button';
 import Header from '../components/Header';
+import AlcoholButton from '../components/AlcoholButton';
+import ppussung from '../assets/ppussung.svg';
 
 const EditCard = () => {
   const prevCard = JSON.parse(localStorage.getItem('card'));
@@ -13,6 +15,7 @@ const EditCard = () => {
   const deptRef = useRef();
   const idRef = useRef();
   const mbtiRef = Array.from({ length: 4 }, () => useRef());
+  const alcoholRef = useRef();
 
   const emptyInputFocus = (targetRef) => {
     targetRef.current.style.border = '1px solid red';
@@ -24,6 +27,7 @@ const EditCard = () => {
     const dept = deptRef.current.value;
     const id = idRef.current.value;
     const mbti = mbtiRef.map((r) => r.current.value).join('');
+    const alcohol = alcoholRef.current.value / 100;
 
     if (name && dept && id) {
       localStorage.setItem(
@@ -33,7 +37,7 @@ const EditCard = () => {
           dept: dept,
           id: id,
           mbti: mbti,
-          // alcohol: 1,
+          alcohol: alcohol,
         }),
       );
 
@@ -94,8 +98,13 @@ const EditCard = () => {
             />
           </MBTIBox>
         </div>
-        <div> 주량 </div>
+        <div style={{ display: 'flex' }}>
+          주량
+          <AlcoholButton ref={alcoholRef} />
+        </div>
+        <img src={ppussung} alt="" />
         <Button text="내 소개 등록하기" color="#AB9FED" link="/" onSubmit={onSubmit} />
+        <p> © 2023 Yourssu All rights reserved </p>
       </Container>
     </>
   );
