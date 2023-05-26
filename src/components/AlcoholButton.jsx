@@ -4,7 +4,7 @@ import bottle from '../assets/bottle.svg';
 
 const AlcoholButton = forwardRef((props, ref) => {
   const [fillBottle, setFillBottle] = useState(
-    Number(JSON.parse(localStorage.getItem('card'))['alcohol'] * 100),
+    Number(JSON.parse(localStorage.getItem('card'))['Drink'] * 100),
   );
 
   const ONE_BOTTLE = 100;
