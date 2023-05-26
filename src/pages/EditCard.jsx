@@ -35,7 +35,7 @@ const EditCard = () => {
         JSON.stringify({
           Name: name,
           Major: dept,
-          ID: id,
+          St_ID: id,
           MBTI: mbti,
           Drink: alcohol,
         }),
@@ -64,7 +64,7 @@ const EditCard = () => {
         <EditInput target={'학과'} prevInput={prevCard && prevCard.Major} ref={deptRef} />
         <EditInput
           target={'학번'}
-          prevInput={prevCard && prevCard.ID}
+          prevInput={prevCard && prevCard.St_ID}
           maxLength={2}
           ref={idRef}
           placeholder={'학번 (ex. 20)'}

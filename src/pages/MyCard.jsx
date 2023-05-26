@@ -35,13 +35,13 @@ const MyCard = () => {
         <>
           <Card>
             {Object.keys(card).map((key) => (
-              <p key={key}>
-                {key}&nbsp;
+              <TextBox key={key}>
+                <Text> {key}&nbsp; </Text>
                 {key === 'Drink'
                   ? `${parseInt(card[key])}병 ${(card[key] - parseInt(card[key])) * 8}잔`
                   : card[key]}
-                {key === 'ID' && <>학번</>}
-              </p>
+                {key === 'St_ID' && <>학번</>}
+              </TextBox>
             ))}
           </Card>
         </>
@@ -54,4 +54,14 @@ export default MyCard;
 
 const Card = styled.div`
   border: 1px solid;
+`;
+
+const TextBox = styled.div`
+  line-height: 3rem;
+`;
+
+const Text = styled.p`
+  display: inline;
+  font-weight: 500;
+  font-size: 1rem;
 `;
