@@ -96,6 +96,7 @@ const EditCard = () => {
         </div>
         <div> 주량 </div>
         <Button text="내 소개 등록하기" color="#AB9FED" link="/" onSubmit={onSubmit} />
+        <p> © 2023 Yourssu All rights reserved </p>
       </Container>
     </>
   );
