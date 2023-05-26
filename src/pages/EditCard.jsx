@@ -100,7 +100,7 @@ const EditCard = () => {
         </div>
         <div style={{ display: 'flex' }}>
           주량
-          <AlcoholButton ref={alcoholRef} />
+          <AlcoholButton prevInput={prevCard && prevCard.Drink} ref={alcoholRef} />
         </div>
         <img src={ppussung} alt="" />
         <Button text="내 소개 등록하기" color="#AB9FED" link="/" onSubmit={onSubmit} />
