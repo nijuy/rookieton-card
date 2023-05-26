@@ -6,6 +6,7 @@ import RadioSelector from '../components/RadioSelector';
 import Button from '../components/Button';
 import Header from '../components/Header';
 import AlcoholButton from '../components/AlcoholButton';
+import ppussung from '../assets/ppussung.svg';
 
 const EditCard = () => {
   const prevCard = JSON.parse(localStorage.getItem('card'));
@@ -101,6 +102,7 @@ const EditCard = () => {
           주량
           <AlcoholButton ref={alcoholRef} />
         </div>
+        <img src={ppussung} alt="" />
         <Button text="내 소개 등록하기" color="#AB9FED" link="/" onSubmit={onSubmit} />
         <p> © 2023 Yourssu All rights reserved </p>
       </Container>
