@@ -13,7 +13,7 @@ const RadioSelector = forwardRef((props, ref) => {
       <Container>
         {`${guideText[0]}형? vs ${guideText[1]}형?`}
         <div style={{ display: 'flex' }}>
-          <RadioInput direction="L">
+          <RadioInputBox direction="L">
             <input
               type="radio"
               ref={ref}
@@ -24,8 +24,8 @@ const RadioSelector = forwardRef((props, ref) => {
               defaultChecked
             />
             <label htmlFor={optionA}>{optionA}</label>
-          </RadioInput>
-          <RadioInput direction="R">
+          </RadioInputBox>
+          <RadioInputBox direction="R">
             <input
               type="radio"
               id={optionB}
@@ -34,7 +34,7 @@ const RadioSelector = forwardRef((props, ref) => {
               onChange={handleInputChange}
             />
             <label htmlFor={optionB}>{optionB} </label>
-          </RadioInput>
+          </RadioInputBox>
         </div>
       </Container>
     </>
@@ -48,7 +48,7 @@ const Container = styled.div`
   align-items: center;
 `;
 
-const RadioInput = styled.div`
+const RadioInputBox = styled.div`
   border: 1px solid #a3a3a3;
   border-right: ${(props) => props.direction === 'L' && 'none'};
   border-radius: ${(props) => (props.direction === 'L' ? '8px 0px 0px 8px' : '0px 8px 8px 0px')};
