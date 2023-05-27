@@ -116,4 +116,5 @@ export default EditCard;
 const MBTIBox = styled.div`
   display: grid;
   grid-template-columns: 50% 50%;
+  margin-left: 22px;
 `;
