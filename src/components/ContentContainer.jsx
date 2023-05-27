@@ -5,7 +5,6 @@ const ContentContainer = ({ children }) => {
 };
 
 const Container = styled.div`
-  border: 1px solid red;
   height: 800px;
   text-align: center;
   display: flex;
