@@ -50,6 +50,7 @@ const InputBox = styled.div`
   align-items: center;
   margin-bottom: 10px;
   width: 259px;
+  font-weight: 700;
 `;
 
 const Input = styled.input`
