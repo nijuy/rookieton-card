@@ -7,6 +7,7 @@ import Button from '../components/Button';
 import Header from '../components/Header';
 import AlcoholButton from '../components/AlcoholButton';
 import ppussung from '../assets/ppussung.svg';
+import ContentContainer from '../components/ContentContainer';
 
 const EditCard = () => {
   const prevCard = JSON.parse(localStorage.getItem('card'));
@@ -54,7 +55,7 @@ const EditCard = () => {
   return (
     <>
       <Header />
-      <Container>
+      <ContentContainer>
         <EditInput
           target={'이름'}
           prevInput={prevCard && prevCard.Name}
@@ -105,20 +106,12 @@ const EditCard = () => {
         <img src={ppussung} alt="" />
         <Button text="내 소개 등록하기" color="#AB9FED" link="/" onSubmit={onSubmit} />
         <p> © 2023 Yourssu All rights reserved </p>
-      </Container>
+      </ContentContainer>
     </>
   );
 };
 
 export default EditCard;
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 60vh;
-  align-items: center;
-  justify-content: space-evenly;
-`;
 
 const MBTIBox = styled.div`
   display: grid;
