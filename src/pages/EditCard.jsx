@@ -70,7 +70,7 @@ const EditCard = () => {
           ref={idRef}
           placeholder={'학번 (ex. 20)'}
         />
-        <div style={{ display: 'flex' }}>
+        <div style={{ display: 'flex', fontWeight: '700' }}>
           MBTI
           <MBTIBox>
             <RadioSelector
