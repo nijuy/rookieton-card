@@ -46,9 +46,10 @@ export default EditInput;
 
 const InputBox = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
+  width: 259px;
 `;
 
 const Input = styled.input`
