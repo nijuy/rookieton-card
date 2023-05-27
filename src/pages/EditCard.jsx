@@ -136,8 +136,7 @@ const CopyrightText = styled.p`
 `;
 
 const PpussungBox = styled.div`
-  width: calc(100% - 40px);
-  padding: 0px 20px;
+  width: 274px;
   display: flex;
   justify-content: flex-end;
 `;
