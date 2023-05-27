@@ -6,7 +6,7 @@ const AlcoholButton = forwardRef((props, ref) => {
   const { prevInput } = props;
 
   const [fillBottle, setFillBottle] = useState(prevInput ? Number(prevInput * 100) : 0);
-  
+
   const ONE_BOTTLE = 100;
   const ONE_SHOT = 12.5;
 
@@ -129,6 +129,8 @@ const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 10px;
+
+  font-weight: 500;
 `;
 
 const ButtonBox = styled.div`
