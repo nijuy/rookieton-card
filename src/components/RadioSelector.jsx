@@ -44,7 +44,7 @@ const RadioSelector = forwardRef((props, ref) => {
 });
 
 const Container = styled.div`
-  margin: 0px 35px 35px 0px;
+  margin: 0px 15px 15px 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -54,7 +54,7 @@ const RadioInputLabel = styled.label`
   border: 1px solid #a3a3a3;
   border-right: ${(props) => props.direction === 'L' && 'none'};
   border-radius: ${(props) => (props.direction === 'L' ? '8px 0px 0px 8px' : '0px 8px 8px 0px')};
-  width: 80px;
+  width: 60px;
   height: 24px;
   display: flex;
   justify-content: center;
