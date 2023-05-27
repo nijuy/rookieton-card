@@ -22,7 +22,11 @@ const MyCard = () => {
       <Header />
       {isCardEmpty ? (
         <>
-          <h4> 매번 똑같은 자기소개에 질렸다면? </h4>
+          <h4>
+            매번 똑같은 자기소개에 질렸다면?
+            <br />
+            자기소개를 fun, cool, foxy하게
+          </h4>
           <img src={start_ppussung} alt="" />
 
           <Button
