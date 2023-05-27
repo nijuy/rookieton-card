@@ -38,7 +38,6 @@ const Header = () => {
               <li> 서비스 소개 </li>
               <li> 만든 사람들 </li>
               <li> 이용약관 </li>
-              <li> 개인정보 처리방침 </li>
             </List>
           </MenuBox>
         </MenuContainer>
