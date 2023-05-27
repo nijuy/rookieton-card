@@ -7,6 +7,7 @@ import Button from '../components/Button';
 import Header from '../components/Header';
 import AlcoholButton from '../components/AlcoholButton';
 import ppussung from '../assets/ppussung.svg';
+import ContentContainer from '../components/ContentContainer';
 
 const EditCard = () => {
   const prevCard = JSON.parse(localStorage.getItem('card'));
@@ -54,7 +55,7 @@ const EditCard = () => {
   return (
     <>
       <Header />
-      <Container>
+      <ContentContainer>
         <EditInput
           target={'이름'}
           prevInput={prevCard && prevCard.Name}
@@ -69,8 +70,8 @@ const EditCard = () => {
           ref={idRef}
           placeholder={'학번 (ex. 20)'}
         />
-        <div style={{ display: 'flex' }}>
-          MBTI
+        <ItemBox>
+          <span>MBTI</span>
           <MBTIBox>
             <RadioSelector
               optionA={'E'}
@@ -97,30 +98,45 @@ const EditCard = () => {
               guideText={['판단', '인식']}
             />
           </MBTIBox>
-        </div>
-        <div style={{ display: 'flex' }}>
-          주량
+        </ItemBox>
+        <ItemBox>
+          <span>주량</span>
           <AlcoholButton prevInput={prevCard && prevCard.Drink} ref={alcoholRef} />
-        </div>
-        <img src={ppussung} alt="" />
+        </ItemBox>
+        <PpussungBox>
+          <img src={ppussung} alt="" />
+        </PpussungBox>
         <Button text="내 소개 등록하기" color="#AB9FED" link="/" onSubmit={onSubmit} />
-        <p> © 2023 Yourssu All rights reserved </p>
-      </Container>
+        <CopyrightText> © 2023 Yourssu All rights reserved </CopyrightText>
+      </ContentContainer>
     </>
   );
 };
 
 export default EditCard;
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 60vh;
-  align-items: center;
-  justify-content: space-evenly;
-`;
-
 const MBTIBox = styled.div`
   display: grid;
   grid-template-columns: 50% 50%;
+`;
+
+const ItemBox = styled.div`
+  display: flex;
+  font-weight: 700;
+
+  span {
+    margin-right: 22px;
+  }
+`;
+
+const CopyrightText = styled.p`
+  color: #a3a3a3;
+  font-weight: 200;
+  font-size: 6px;
+`;
+
+const PpussungBox = styled.div`
+  width: 274px;
+  display: flex;
+  justify-content: flex-end;
 `;
