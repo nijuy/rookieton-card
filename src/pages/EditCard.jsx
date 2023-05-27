@@ -70,8 +70,8 @@ const EditCard = () => {
           ref={idRef}
           placeholder={'학번 (ex. 20)'}
         />
-        <div style={{ display: 'flex', fontWeight: '700' }}>
-          MBTI
+        <ItemBox>
+          <span>MBTI</span>
           <MBTIBox>
             <RadioSelector
               optionA={'E'}
@@ -98,11 +98,11 @@ const EditCard = () => {
               guideText={['판단', '인식']}
             />
           </MBTIBox>
-        </div>
-        <div style={{ display: 'flex' }}>
-          주량
+        </ItemBox>
+        <ItemBox>
+          <span>주량</span>
           <AlcoholButton prevInput={prevCard && prevCard.Drink} ref={alcoholRef} />
-        </div>
+        </ItemBox>
         <img src={ppussung} alt="" />
         <Button text="내 소개 등록하기" color="#AB9FED" link="/" onSubmit={onSubmit} />
         <p> © 2023 Yourssu All rights reserved </p>
@@ -116,5 +116,13 @@ export default EditCard;
 const MBTIBox = styled.div`
   display: grid;
   grid-template-columns: 50% 50%;
-  margin-left: 22px;
+`;
+
+const ItemBox = styled.div`
+  display: flex;
+  font-weight: 700;
+
+  span {
+    margin-right: 22px;
+  }
 `;
