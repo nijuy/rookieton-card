@@ -66,6 +66,8 @@ const MyCard = () => {
 export default MyCard;
 
 const Card = styled.div`
+  width: 336px;
+  height: 622px;
   border: 2px solid #a9e0ff;
   border-radius: 10px;
   display: flex;
