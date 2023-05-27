@@ -105,7 +105,7 @@ const EditCard = () => {
         </ItemBox>
         <img src={ppussung} alt="" />
         <Button text="내 소개 등록하기" color="#AB9FED" link="/" onSubmit={onSubmit} />
-        <p> © 2023 Yourssu All rights reserved </p>
+        <CopyrightText> © 2023 Yourssu All rights reserved </CopyrightText>
       </ContentContainer>
     </>
   );
@@ -125,4 +125,10 @@ const ItemBox = styled.div`
   span {
     margin-right: 22px;
   }
+`;
+
+const CopyrightText = styled.p`
+  color: #a3a3a3;
+  font-weight: 200;
+  font-size: 6px;
 `;
