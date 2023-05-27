@@ -103,7 +103,9 @@ const EditCard = () => {
           <span>주량</span>
           <AlcoholButton prevInput={prevCard && prevCard.Drink} ref={alcoholRef} />
         </ItemBox>
-        <img src={ppussung} alt="" />
+        <PpussungBox>
+          <img src={ppussung} alt="" />
+        </PpussungBox>
         <Button text="내 소개 등록하기" color="#AB9FED" link="/" onSubmit={onSubmit} />
         <CopyrightText> © 2023 Yourssu All rights reserved </CopyrightText>
       </ContentContainer>
@@ -131,4 +133,11 @@ const CopyrightText = styled.p`
   color: #a3a3a3;
   font-weight: 200;
   font-size: 6px;
+`;
+
+const PpussungBox = styled.div`
+  width: calc(100% - 40px);
+  padding: 0px 20px;
+  display: flex;
+  justify-content: flex-end;
 `;
