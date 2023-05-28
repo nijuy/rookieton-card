@@ -8,7 +8,11 @@ const MenuModal = (props) => {
 
   return (
     <Container onClick={onClickClose}>
-      <TextBox>
+      <TextBox
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+      >
         <div>
           <div style={{ width: '90%' }}>
             <img src={logo} alt="" width={150} />
