@@ -6,10 +6,36 @@ import start_ppussung from '../assets/start_ppussung.svg';
 import yourssu_belt from '../assets/yourssu_belt.svg';
 import ContentContainer from '../components/ContentContainer';
 import MbtiPpussung from '../components/MbtiPpussung';
+import bottle from '../assets/bottle.svg';
 
 const MyCard = () => {
   const [card, setCard] = useState({});
   const [isCardEmpty, setIsCardEmpty] = useState(true);
+
+  const calculateBottleCount = () => {
+    let drink = card['Drink'];
+    const bottleArr = [];
+
+    while (drink) {
+      if (drink > 1) {
+        bottleArr.push(100);
+        drink--;
+      } else {
+        bottleArr.push(drink * 100);
+        drink = 0;
+      }
+    }
+
+    return (
+      <BottleBox>
+        {bottleArr.map((b, ind) => (
+          <Bottle key={ind} fill={b}>
+            <img src={bottle} alt="" />
+          </Bottle>
+        ))}
+      </BottleBox>
+    );
+  };
 
   useEffect(() => {
     const savedCard = localStorage.getItem('card');
@@ -54,7 +80,8 @@ const MyCard = () => {
                     {key === 'St_ID' && <>학번</>}
                   </TextBox>
                 ))}
-                ~ 술병 자리 ~<Text color="#A9E0FF"> Yourssu </Text>
+                {calculateBottleCount()}
+                <Text color="#A9E0FF"> Yourssu </Text>
               </Card>
             </div>
           </>
@@ -95,4 +122,16 @@ const Belt = styled.div`
   width: 100%;
   z-index: -1;
   height: 30px;
+`;
+
+const BottleBox = styled.div`
+  display: flex;
+  justify-content: space-around;
+`;
+
+const Bottle = styled.div`
+  width: fit-content;
+  background: ${(props) =>
+    `linear-gradient(0deg, #6EDE79 0 ${props.fill}%, white ${1 - props.fill}% 100%)`};
+  height: 80px;
 `;
