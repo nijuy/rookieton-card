@@ -36,7 +36,11 @@ const MenuModal = (props) => {
           </ImageButton>
         </div>
         {text.map((textData, ind) => (
-          <TextContent key={ind} dangerouslySetInnerHTML={{ __html: textData }}></TextContent>
+          <TextContent
+            key={ind}
+            title={title}
+            dangerouslySetInnerHTML={{ __html: textData }}
+          ></TextContent>
         ))}
       </TextBox>
     </Container>
@@ -87,19 +91,29 @@ const TextContent = styled.div`
   flex-direction: column;
   font-size: smaller;
 
-  h2 {
+  h1,
+  h2,
+  h3,
+  h5 {
     text-align: center;
     margin-bottom: 0;
+  }
+
+  h3 {
+    text-align: center;
   }
 
   h4 {
     margin-bottom: 0;
-    text-align: center;
+    text-align: ${(props) => (props.title === 'intro' ? 'center' : 'left')};
   }
 
   h5 {
     margin: 0;
-    text-align: center;
+  }
+
+  span {
+    text-align: ${(props) => (props.title === 'intro' ? 'center' : 'left')};
   }
 `;
 
