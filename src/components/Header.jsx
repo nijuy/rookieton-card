@@ -4,14 +4,31 @@ import { useNavigate } from 'react-router-dom';
 import menu_button from '../assets/menu_button.svg';
 import edit_button from '../assets/edit_button.svg';
 import close_button from '../assets/close_button.svg';
+import MenuModal from './MenuModal';
 
 const Header = () => {
   const navigate = useNavigate();
+
   const [isShowEditButton, setIsShowEditButton] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
+  const [openServiceIntro, setOpenServiceIntro] = useState(false);
+  const [openServiceCreator, setOpenServiceCreator] = useState(false);
+  const [openServicePolicy, setOpenServicePolicy] = useState(false);
 
   const reverseOpenMenu = () => {
     setOpenMenu((prev) => !prev);
+  };
+
+  const reverseServiceIntro = () => {
+    setOpenServiceIntro((prev) => !prev);
+  };
+
+  const reverseServiceCreator = () => {
+    setOpenServiceCreator((prev) => !prev);
+  };
+
+  const reverseServicePolicy = () => {
+    setOpenServicePolicy((prev) => !prev);
   };
 
   useEffect(() => {
@@ -35,11 +52,25 @@ const Header = () => {
               <img src={close_button} alt="" />
             </ImageButton>
             <List>
-              <li> 서비스 소개 </li>
-              <li> 만든 사람들 </li>
-              <li> 이용약관 </li>
-              <li> 개인정보 처리방침 </li>
+              <li onClick={reverseServiceIntro}> 서비스 소개 </li>
+              <li onClick={reverseServiceCreator}> 만든 사람들 </li>
+              <li onClick={reverseServicePolicy}> 이용약관 </li>
             </List>
+            {openServiceIntro && (
+              <MenuModal title="intro" onClickClose={reverseServiceIntro}>
+                서비스 소개
+              </MenuModal>
+            )}
+            {openServiceCreator && (
+              <MenuModal title="creator" onClickClose={reverseServiceCreator}>
+                만든 사람들
+              </MenuModal>
+            )}
+            {openServicePolicy && (
+              <MenuModal title="policy" onClickClose={reverseServicePolicy}>
+                이용약관
+              </MenuModal>
+            )}
           </MenuBox>
         </MenuContainer>
       )}
@@ -105,4 +136,8 @@ const List = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+
+  li {
+    cursor: pointer;
+  }
 `;
