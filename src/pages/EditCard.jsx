@@ -8,9 +8,11 @@ import Header from '../components/Header';
 import AlcoholButton from '../components/AlcoholButton';
 import ppussung from '../assets/ppussung.svg';
 import ContentContainer from '../components/ContentContainer';
+import MenuModal from '../components/MenuModal';
 
 const EditCard = () => {
   const [isAgreed, setIsAgreed] = useState(false); // 체크박스 동의 여부
+  const [openPolicyAndCaution, setOpenPolicyAndCaution] = useState(false);
 
   const prevCard = JSON.parse(localStorage.getItem('card'));
 
@@ -19,6 +21,10 @@ const EditCard = () => {
   const idRef = useRef();
   const mbtiRef = Array.from({ length: 4 }, () => useRef());
   const alcoholRef = useRef();
+
+  const reversePolicyAndCaution = () => {
+    setOpenPolicyAndCaution((prev) => !prev);
+  };
 
   const emptyInputFocus = (targetRef) => {
     targetRef.current.style.border = '1px solid red';
@@ -113,7 +119,9 @@ const EditCard = () => {
                 setIsAgreed(e.target.checked);
               }}
             />
-            <label isagreed={isAgreed.toString()}>이용약관, 주의사항을 확인했습니다.</label>
+            <label isagreed={isAgreed.toString()}>
+              <u onClick={reversePolicyAndCaution}>이용약관, 주의사항</u>을 확인했습니다.
+            </label>
           </div>
           <img src={ppussung} alt="" />
         </PolicyBox>
@@ -125,6 +133,11 @@ const EditCard = () => {
           isDisabled={!isAgreed}
         />
         <CopyrightText> © 2023 Yourssu All rights reserved </CopyrightText>
+        {openPolicyAndCaution && (
+          <MenuModal title="warning" onClickClose={reversePolicyAndCaution}>
+            만든 사람들
+          </MenuModal>
+        )}
       </ContentContainer>
     </>
   );
@@ -170,5 +183,9 @@ const PolicyBox = styled.div`
 
   label {
     color: ${(props) => (props.isagreed === 'true' ? '#AB9FED' : '#A3A3A3')};
+  }
+
+  u {
+    cursor: pointer;
   }
 `;
