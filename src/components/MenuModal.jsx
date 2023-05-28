@@ -108,6 +108,7 @@ const TextContent = styled.div`
   h2,
   h3,
   h5,
+  h6,
   p {
     text-align: center;
     margin-bottom: 0;
@@ -118,8 +119,9 @@ const TextContent = styled.div`
   }
 
   h4 {
+    margin-top: 5px;
     margin-bottom: 0;
-    text-align: ${(props) => (props.title === 'intro' ? 'center' : 'left')};
+    text-align: ${(props) => (props.title !== 'policy' ? 'center' : 'left')};
     font-size: ${(props) => props.title === 'intro' && 'smaller'};
     font-weight: 500;
   }
@@ -128,8 +130,8 @@ const TextContent = styled.div`
     color: #ab9fed;
   }
 
-  h5 {
-    margin: 20px 0 10px 0;
+  h6 {
+    color: #ab9fed;
   }
 
   span {
