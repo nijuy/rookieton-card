@@ -37,7 +37,7 @@ const EditInput = forwardRef((props, ref) => {
 });
 
 EditInput.defaultProps = {
-  maxLength: 10,
+  maxLength: 11,
   prevInput: '',
   placeholder: 'placeholder',
 };
