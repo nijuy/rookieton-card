@@ -19,7 +19,20 @@ const serviceIntro = `<h4 id="intro_title">어색한 첫만남에서, FUN하고,
 <span>등록한 정보가 표시되는 최종 명함은<br/>뿌슝이 MBTI, 기본 정보, 주량의 순서대로 표시됩니다.</span>
 `;
 
-const serviceCreator = '만든 사람들';
+const serviceCreator = `
+<h6>뉘SSU?가 여러분에게 도착하기까지 힘쓴 이들을 INTRODUSSU합니다!</h6>
+<h3>CREDITS ::</h3>
+<h4>프로젝트 매니징 : NOKI 오설란</h4>
+<h4>iOS : PREY 홍준혁, BRICK 김동현</h4>
+<h4>Android : TEI 이태희</h4>
+<h4>Web : BORI 이유진</h4>
+<h4>디자인 : LUNA 이효연</h4>
+<h4>마케팅 : DALTO 우나경</h4>
+<h4>Legal : NINE 노금구</h4>
+
+<h5>🦊 유어슈 루키톤 FOX 팀 🦊<br/>
+FUN하고, COOL하고, FOXY하게!</h5>
+`;
 
 const servicePolicy = `<h1>이용약관</h1>
 <h2>제1장 총칙</h2>
