@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import start_ppussung from '../assets/start_ppussung.svg';
 import yourssu_belt from '../assets/yourssu_belt.svg';
 import ContentContainer from '../components/ContentContainer';
+import MbtiPpussung from '../components/MbtiPpussung';
 
 const MyCard = () => {
   const [card, setCard] = useState({});
@@ -42,7 +43,7 @@ const MyCard = () => {
           <>
             <div style={{ border: '1.5px solid #a3a3a3', borderRadius: '10px', padding: '10px' }}>
               <Card>
-                ~ 뿌슝이 자리 ~
+                <MbtiPpussung mbti={card['MBTI']} />
                 <Belt background={yourssu_belt} />
                 {Object.keys(card).map((key) => (
                   <TextBox key={key}>
