@@ -91,24 +91,28 @@ const EditCard = () => {
               optionB={'I'}
               ref={mbtiRef[0]}
               guideText={['외향', '내향']}
+              prevInput={prevCard && prevCard.MBTI[0]}
             />
             <RadioSelector
               optionA={'S'}
               optionB={'N'}
               ref={mbtiRef[1]}
               guideText={['감각', '직관']}
+              prevInput={prevCard && prevCard.MBTI[1]}
             />
             <RadioSelector
               optionA={'T'}
               optionB={'F'}
               ref={mbtiRef[2]}
               guideText={['사고', '감각']}
+              prevInput={prevCard && prevCard.MBTI[2]}
             />
             <RadioSelector
               optionA={'J'}
               optionB={'P'}
               ref={mbtiRef[3]}
               guideText={['판단', '인식']}
+              prevInput={prevCard && prevCard.MBTI[3]}
             />
           </MBTIBox>
         </ItemBox>

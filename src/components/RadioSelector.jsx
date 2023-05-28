@@ -1,12 +1,19 @@
 import { styled } from 'styled-components';
-import { forwardRef } from 'react';
+import { forwardRef, useEffect } from 'react';
 
 const RadioSelector = forwardRef((props, ref) => {
-  const { optionA, optionB, guideText } = props;
+  const { optionA, optionB, guideText, prevInput } = props;
 
   const handleInputChange = (e) => {
     ref.current = e.target;
   };
+
+  useEffect(() => {
+    if (prevInput) {
+      ref.current =
+        prevInput === optionA ? document.getElementById(optionA) : document.getElementById(optionB);
+    }
+  }, []);
 
   return (
     <>
@@ -21,7 +28,7 @@ const RadioSelector = forwardRef((props, ref) => {
             value={optionA}
             direction="L"
             onChange={handleInputChange}
-            defaultChecked
+            defaultChecked={prevInput ? prevInput === optionA && true : true}
           />
           <RadioInputLabel direction="L" htmlFor={optionA}>
             {optionA}
@@ -33,6 +40,7 @@ const RadioSelector = forwardRef((props, ref) => {
             value={optionB}
             direction="R"
             onChange={handleInputChange}
+            defaultChecked={prevInput === optionB && true}
           />
           <RadioInputLabel direction="R" htmlFor={optionB}>
             {optionB}
