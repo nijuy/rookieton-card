@@ -106,26 +106,38 @@ const TextContent = styled.div`
   h1,
   h2,
   h3,
-  h5 {
+  h5,
+  p {
     text-align: center;
     margin-bottom: 0;
   }
 
   h3 {
-    text-align: center;
+    color: ${(props) => (props.title === 'intro' ? '#AB9FED' : 'black')};
   }
 
   h4 {
     margin-bottom: 0;
     text-align: ${(props) => (props.title === 'intro' ? 'center' : 'left')};
+    font-size: ${(props) => props.title === 'intro' && 'smaller'};
+    font-weight: 500;
+  }
+
+  #intro_title {
+    color: #ab9fed;
   }
 
   h5 {
-    margin: 0;
+    margin: 20px 0 10px 0;
   }
 
   span {
     text-align: ${(props) => (props.title === 'intro' ? 'center' : 'left')};
+  }
+
+  text {
+    color: #fe94c1;
+    font-weight: 600;
   }
 `;
 
