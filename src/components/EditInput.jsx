@@ -37,7 +37,7 @@ const EditInput = forwardRef((props, ref) => {
 });
 
 EditInput.defaultProps = {
-  maxLength: 10,
+  maxLength: 11,
   prevInput: '',
   placeholder: 'placeholder',
 };
@@ -58,4 +58,8 @@ const Input = styled.input`
   border: 1px solid #a3a3a3;
   border-radius: 8px;
   padding: 5px 10px;
+
+  &::placeholder {
+    font-size: 8px;
+  }
 `;
