@@ -2,6 +2,7 @@ import { styled } from 'styled-components';
 import close_button from '../assets/close_button.svg';
 import logo from '../assets/logo.svg';
 import { serviceIntro, serviceCreator, servicePolicy, serviceCaution } from '../assets/MenuText';
+import { useEffect } from 'react';
 
 const MenuModal = (props) => {
   const { title, onClickClose } = props;
@@ -14,6 +15,11 @@ const MenuModal = (props) => {
   };
 
   const text = setText();
+
+  useEffect(() => {
+    document.body.style = `overflow: hidden`;
+    return () => (document.body.style = `overflow: auto`);
+  }, []);
 
   return (
     <Container onClick={onClickClose}>
@@ -51,6 +57,7 @@ const Container = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -60,7 +67,7 @@ const Container = styled.div`
 
 const TextBox = styled.div`
   width: 320px;
-  max-height: 480px;
+  max-height: 380px;
   height: fit-content;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
