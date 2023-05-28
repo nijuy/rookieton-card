@@ -67,7 +67,10 @@ const TextBox = styled.div`
   padding: 20px;
   display: flex;
   flex-direction: column;
-  overflow: scroll;
+  overflow: auto;
+  border-top: 15px solid white;
+  border-right: 8px solid white;
+  border-bottom: 15px solid white;
 
   div {
     display: flex;
@@ -76,6 +79,15 @@ const TextBox = styled.div`
 
   img {
     margin-left: 33%;
+  }
+
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background: #a3a3a3;
   }
 `;
 
