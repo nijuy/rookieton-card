@@ -60,7 +60,8 @@ const Container = styled.div`
 
 const TextBox = styled.div`
   width: 320px;
-  height: 409px;
+  max-height: 480px;
+  height: fit-content;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
   background-color: white;
