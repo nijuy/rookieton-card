@@ -14,6 +14,7 @@ import ISFJ from '../assets/ISFJ.svg';
 import ISTJ from '../assets/ISTJ.svg';
 import ISFP from '../assets/ISFP.svg';
 import ISTP from '../assets/ISTP.svg';
+import { styled } from 'styled-components';
 
 const MbtiPpussung = (props) => {
   const mbti = {
@@ -35,7 +36,11 @@ const MbtiPpussung = (props) => {
     ISTP: ISTP,
   };
 
-  return <img src={mbti[props.mbti]} alt="" />;
+  return <Img src={mbti[props.mbti]} alt="" />;
 };
+
+const Img = styled.img`
+  padding-top: 5px;
+`;
 
 export default MbtiPpussung;
