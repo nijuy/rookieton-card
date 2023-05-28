@@ -113,12 +113,12 @@ const MenuContainer = styled.div`
   left: 0;
   background-color: rgba(0, 0, 0, 0.4);
   width: 100vw;
-  height: 100vh;
+  height: max(100vh, 847px);
 `;
 
 const MenuBox = styled.div`
   background-color: white;
-  height: 100vh;
+  height: max(100vh, 847px);
   width: 230px;
   float: left;
 
