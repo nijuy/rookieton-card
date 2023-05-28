@@ -53,7 +53,7 @@ const AlcoholButton = forwardRef((props, ref) => {
               onClickPlus(ONE_BOTTLE);
             }}
             direction="R"
-            disabled={fillBottle === 500 && true}
+            disabled={fillBottle > 400 && true}
           >
             +
           </Button>
