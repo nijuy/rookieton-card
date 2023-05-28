@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import { useRef } from 'react';
+import { useState, useRef } from 'react';
 import EditInput from '../components/EditInput';
 import RadioSelector from '../components/RadioSelector';
 import Button from '../components/Button';
@@ -10,6 +10,8 @@ import ppussung from '../assets/ppussung.svg';
 import ContentContainer from '../components/ContentContainer';
 
 const EditCard = () => {
+  const [isAgreed, setIsAgreed] = useState(false); // 체크박스 동의 여부
+
   const prevCard = JSON.parse(localStorage.getItem('card'));
 
   const nameRef = useRef();
@@ -103,10 +105,25 @@ const EditCard = () => {
           <span>주량</span>
           <AlcoholButton prevInput={prevCard && prevCard.Drink} ref={alcoholRef} />
         </ItemBox>
-        <PpussungBox>
+        <PolicyBox isagreed={isAgreed.toString()}>
+          <div>
+            <input
+              type="checkbox"
+              onChange={(e) => {
+                setIsAgreed(e.target.checked);
+              }}
+            />
+            <label isagreed={isAgreed.toString()}>이용약관, 주의사항을 확인했습니다.</label>
+          </div>
           <img src={ppussung} alt="" />
-        </PpussungBox>
-        <Button text="내 소개 등록하기" color="#AB9FED" link="/" onSubmit={onSubmit} />
+        </PolicyBox>
+        <Button
+          text="내 소개 등록하기"
+          color="#AB9FED"
+          link="/"
+          onSubmit={onSubmit}
+          isDisabled={!isAgreed}
+        />
         <CopyrightText> © 2023 Yourssu All rights reserved </CopyrightText>
       </ContentContainer>
     </>
@@ -135,8 +152,23 @@ const CopyrightText = styled.p`
   font-size: 6px;
 `;
 
-const PpussungBox = styled.div`
-  width: 274px;
+const PolicyBox = styled.div`
+  width: 350px;
   display: flex;
   justify-content: flex-end;
+  border: 1.5px dashed ${(props) => (props.isagreed === 'true' ? '#AB9FED' : '#A3A3A3')};
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 12px;
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+  }
+
+  label {
+    color: ${(props) => (props.isagreed === 'true' ? '#AB9FED' : '#A3A3A3')};
+  }
 `;
