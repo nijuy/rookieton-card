@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import start_arrow from '../assets/start_arrow.svg';
 
 const Button = (props) => {
-  const { text, showImg, color, link, onSubmit } = props;
+  const { text, showImg, color, link, onSubmit, isDisabled } = props;
   const navigate = useNavigate();
 
   const onClick = () => {
@@ -13,7 +13,7 @@ const Button = (props) => {
 
   return (
     <>
-      <ButtonContainer color={color} onClick={onClick}>
+      <ButtonContainer color={color} onClick={onClick} disabled={isDisabled}>
         {text}
         {showImg && <img src={start_arrow} alt="" />}
       </ButtonContainer>
@@ -25,12 +25,13 @@ Button.defaultProps = {
   showImg: false,
   link: '',
   onSubmit: undefined,
+  isDisabled: false,
 };
 
 const ButtonContainer = styled.button`
   width: 224px;
   height: 40px;
-  background: ${(props) => props.color};
+  background: ${(props) => (props.disabled ? '#A3A3A3' : props.color)};
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
   border: none;
@@ -39,7 +40,7 @@ const ButtonContainer = styled.button`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  cursor: pointer;
+  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
 `;
 
 export default Button;
