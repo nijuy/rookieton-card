@@ -68,15 +68,20 @@ const EditCard = () => {
           target={'이름'}
           prevInput={prevCard && prevCard.Name}
           ref={nameRef}
-          placeholder={'이름을 입력해주세요 (10자 내, 특수문자 가능)'}
+          placeholder={'이름 (11자 이하, 특수문자 입력 가능)'}
         />
-        <EditInput target={'학과'} prevInput={prevCard && prevCard.Major} ref={deptRef} />
+        <EditInput
+          target={'학과'}
+          prevInput={prevCard && prevCard.Major}
+          ref={deptRef}
+          placeholder={'학과 (11자 이하, 특수문자 입력 가능)'}
+        />
         <EditInput
           target={'학번'}
           prevInput={prevCard && prevCard.St_ID}
           maxLength={2}
           ref={idRef}
-          placeholder={'학번 (ex. 20)'}
+          placeholder={'학번 (2자 이하, 숫자만 입력 가능)'}
         />
         <ItemBox>
           <span>MBTI</span>
