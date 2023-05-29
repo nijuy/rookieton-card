@@ -7,6 +7,7 @@ import yourssu_belt from '../assets/yourssu_belt.svg';
 import ContentContainer from '../components/ContentContainer';
 import MbtiPpussung from '../components/MbtiPpussung';
 import bottle from '../assets/bottle.svg';
+import logo from '../assets/logo.svg';
 
 const MyCard = () => {
   const [card, setCard] = useState({});
@@ -56,7 +57,8 @@ const MyCard = () => {
               <br />
               자기소개를 fun, cool, foxy하게
             </h4>
-            <img src={start_ppussung} alt="" />
+            <img src={logo} alt="" width="240px" />
+            <img src={start_ppussung} alt="" width="350px" />
 
             <Button
               text="나를 친구에게 소개하기"

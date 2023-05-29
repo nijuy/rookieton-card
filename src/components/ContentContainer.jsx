@@ -9,8 +9,12 @@ const Container = styled.div`
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
+
+  h4 {
+    margin: 0;
+  }
 `;
 
 export default ContentContainer;
