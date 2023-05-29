@@ -8,10 +8,13 @@ import ContentContainer from '../components/ContentContainer';
 import MbtiPpussung from '../components/MbtiPpussung';
 import bottle from '../assets/bottle.svg';
 import logo from '../assets/logo.svg';
+import horizontal_button from '../assets/horizontal_button.png';
+import vertical_button from '../assets/vertical_button.png';
 
 const MyCard = () => {
   const [card, setCard] = useState({});
   const [isCardEmpty, setIsCardEmpty] = useState(true);
+  const [isVerticalMode, setIsVerticalMode] = useState(true);
 
   const calculateBottleCount = () => {
     let drink = card['Drink'];
@@ -70,21 +73,33 @@ const MyCard = () => {
         ) : (
           <>
             <div style={{ border: '1.5px solid #a3a3a3', borderRadius: '10px', padding: '10px' }}>
-              <Card>
+              <CardContainer isverticalmode={isVerticalMode.toString()}>
                 <MbtiPpussung mbti={card['MBTI']} />
                 <Belt background={yourssu_belt} />
-                {Object.keys(card).map((key) => (
-                  <TextBox key={key}>
-                    <Text> {key}&nbsp; </Text>
-                    {key === 'Drink'
-                      ? `${parseInt(card[key])}병 ${(card[key] - parseInt(card[key])) * 8}잔`
-                      : card[key]}
-                    {key === 'St_ID' && <>학번</>}
-                  </TextBox>
-                ))}
-                {calculateBottleCount()}
-                <Text color="#A9E0FF"> Yourssu </Text>
-              </Card>
+                <CardContent>
+                  {Object.keys(card).map((key) => (
+                    <TextBox key={key}>
+                      <Text> {key}&nbsp; </Text>
+                      {key === 'Drink'
+                        ? `${parseInt(card[key])} 병 ${(card[key] - parseInt(card[key])) * 8} 잔`
+                        : card[key]}
+                      {key === 'St_ID' && <>학번</>}
+                    </TextBox>
+                  ))}
+                  {calculateBottleCount()}
+                  <Text color="#A9E0FF"> Yourssu </Text>
+                </CardContent>
+              </CardContainer>
+            </div>
+
+            <div align="right" style={{ width: '100%' }}>
+              <ImageButton
+                onClick={() => {
+                  setIsVerticalMode((prev) => !prev);
+                }}
+              >
+                <img src={isVerticalMode ? horizontal_button : vertical_button} />
+              </ImageButton>
             </div>
           </>
         )}
@@ -95,7 +110,18 @@ const MyCard = () => {
 
 export default MyCard;
 
-const Card = styled.div`
+const TextBox = styled.div`
+  line-height: 3rem;
+`;
+
+const CardContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const CardContainer = styled.div`
   width: 336px;
   height: 622px;
   border: 2px solid #a9e0ff;
@@ -103,11 +129,22 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
+  justify-content: space-between;
 
-const TextBox = styled.div`
-  line-height: 3rem;
-  width: fit-content;
+  padding-top: ${(props) => props.isverticalmode === 'false' && '40px'};
+
+  > img {
+    transform: ${(props) => props.isverticalmode === 'false' && 'rotate(90deg)'};
+    margin-bottom: ${(props) => props.isverticalmode === 'false' && '30px'};
+  }
+
+  ${CardContent} {
+    transform: ${(props) => props.isverticalmode === 'false' && 'rotate(90deg)'};
+  }
+
+  ${TextBox} {
+    line-height: ${(props) => props.isverticalmode === 'false' && '2.4rem'};
+  }
 `;
 
 const Text = styled.p`
@@ -133,7 +170,13 @@ const BottleBox = styled.div`
 
 const Bottle = styled.div`
   width: fit-content;
+  height: 80px;
   background: ${(props) =>
     `linear-gradient(0deg, #6EDE79 0 ${props.fill}%, white ${1 - props.fill}% 100%)`};
-  height: 80px;
+`;
+
+const ImageButton = styled.button`
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 `;
