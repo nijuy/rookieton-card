@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import menu_button from '../assets/menu_button.svg';
 import edit_button from '../assets/edit_button.svg';
 import close_button from '../assets/close_button.svg';
+import logo from '../assets/logo.svg';
 import MenuModal from './MenuModal';
 
 const Header = () => {
@@ -79,15 +80,21 @@ const Header = () => {
         <ImageButton onClick={reverseOpenMenu}>
           <img src={menu_button} alt="" />
         </ImageButton>
-        {isShowEditButton && (
-          <ImageButton
-            onClick={() => {
-              navigate('/edit');
-            }}
-          >
-            <img src={edit_button} alt="" />
-          </ImageButton>
-        )}
+        <ImageButton
+          onClick={() => {
+            navigate('/');
+          }}
+        >
+          <img src={logo} alt="" width="65px" />
+        </ImageButton>
+        <ImageButton
+          onClick={() => {
+            navigate('/edit');
+          }}
+          disabled={!isShowEditButton}
+        >
+          <img src={edit_button} alt="" />
+        </ImageButton>
       </ButtonBox>
     </>
   );
@@ -98,13 +105,15 @@ export default Header;
 const ButtonBox = styled.div`
   display: flex;
   justify-content: space-between;
-  height: 31px;
+  height: 50px;
+  border-bottom: 1px solid #f3f4f6;
 `;
 
 const ImageButton = styled.button`
   border: none;
   background-color: transparent;
   cursor: pointer;
+  visibility: ${(props) => props.disabled && 'hidden'};
 `;
 
 const MenuContainer = styled.div`
