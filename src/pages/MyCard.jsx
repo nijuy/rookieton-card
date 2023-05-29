@@ -91,7 +91,7 @@ const MyCard = () => {
                 </CardContent>
               </CardContainer>
             </div>
-
+            <CopyrightText> © 2023 Yourssu All rights reserved </CopyrightText>
             <div align="right" style={{ width: '100%' }}>
               <ImageButton
                 onClick={() => {
@@ -179,4 +179,10 @@ const ImageButton = styled.button`
   border: none;
   background-color: transparent;
   cursor: pointer;
+`;
+
+const CopyrightText = styled.p`
+  color: #a3a3a3;
+  font-weight: 200;
+  font-size: 6px;
 `;
